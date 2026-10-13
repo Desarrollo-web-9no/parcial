@@ -1,7 +1,7 @@
 import React from 'react'
-import { Modal } from '../common/Modal'
-import { generateReceiptPDF } from '../../utils/pdfGenerator'
-import type { ReceiptData } from '../../utils/pdfGenerator'
+import { Modal } from '../Modal'
+import { generateReceiptPDF } from '../../../utils/pdfGenerator'
+import type { ReceiptData } from '../../../utils/pdfGenerator'
 import { Download, CheckCircle, Calendar, User, BookOpen, Hash } from 'lucide-react'
 
 interface ReceiptModalProps {
