@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLibrary } from '../context/LibraryContext'
 import { Badge } from '../components/common/Badge'
-import { ReceiptModal } from '../components/loans/ReceiptModal'
+import { ReceiptModal } from '../components/common/loans/ReceiptModal'
 import type { ReceiptData } from '../utils/pdfGenerator'
 import { History, CheckCircle2, RotateCcw, FileText, Search } from 'lucide-react'
 

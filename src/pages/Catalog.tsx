@@ -3,7 +3,7 @@ import { useLibrary } from '../context/LibraryContext'
 import type { Book } from '../types'
 import { Badge } from '../components/common/Badge'
 import { Modal } from '../components/common/Modal'
-import { ReceiptModal } from '../components/loans/ReceiptModal'
+import { ReceiptModal } from '../components/common/loans/ReceiptModal'
 import { Search, BookOpen, AlertTriangle, Calendar, User, ArrowRight } from 'lucide-react'
 
 export const Catalog: React.FC = () => {
