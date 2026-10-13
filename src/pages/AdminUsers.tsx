@@ -111,24 +111,24 @@ export const AdminUsers: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabecera */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-gray-200">
         <div>
-          <h2 className="text-2xl font-bold text-blue-950">Módulo de Gestión de Usuarios</h2>
-          <p className="text-sm text-slate-600">
+          <h2 className="text-2xl font-bold text-gray-950">Módulo de Gestión de Usuarios</h2>
+          <p className="text-sm text-gray-600">
             Registro y administración de estudiantes y docentes de la universidad.
           </p>
         </div>
 
         <button onClick={openNewUserModal} className="btn-primary text-xs py-2 self-start sm:self-auto">
-          <UserPlus className="w-4 h-4 text-amber-400" />
+          <UserPlus className="w-4 h-4 text-gray-400" />
           Nuevo Usuario
         </button>
       </div>
 
       {/* Alerta de éxito */}
       {success && (
-        <div className="flex items-center gap-2 p-3 bg-emerald-50 border border-emerald-300 text-emerald-900 rounded-md text-xs font-medium">
-          <CheckCircle className="w-4 h-4 text-emerald-700" />
+        <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-300 text-gray-900 rounded-md text-xs font-medium">
+          <CheckCircle className="w-4 h-4 text-gray-700" />
           {success}
         </div>
       )}
@@ -136,7 +136,7 @@ export const AdminUsers: React.FC = () => {
       {/* Barra de Búsqueda y Filtros */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="sm:col-span-2 relative">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+          <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
           <input
             type="text"
             className="input-solid pl-9 text-xs"
@@ -163,7 +163,7 @@ export const AdminUsers: React.FC = () => {
       <div className="card-solid overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
-            <thead className="bg-slate-100 text-slate-700 uppercase font-semibold border-b border-slate-200">
+            <thead className="bg-gray-100 text-gray-700 uppercase font-semibold border-b border-gray-200">
               <tr>
                 <th className="p-3">Código</th>
                 <th className="p-3">Nombres y Apellidos</th>
@@ -172,21 +172,21 @@ export const AdminUsers: React.FC = () => {
                 <th className="p-3 text-right">Acciones</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200">
+            <tbody className="divide-y divide-gray-200">
               {filteredUsers.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="p-6 text-center text-slate-500">
+                  <td colSpan={5} className="p-6 text-center text-gray-500">
                     No se encontraron usuarios que coincidan con la búsqueda.
                   </td>
                 </tr>
               ) : (
                 filteredUsers.map((user) => (
-                  <tr key={user.id} className="hover:bg-slate-50 transition">
-                    <td className="p-3 font-mono font-bold text-blue-900">{user.codigoUniversitario}</td>
-                    <td className="p-3 font-medium text-slate-900">
+                  <tr key={user.id} className="hover:bg-gray-50 transition">
+                    <td className="p-3 font-mono font-bold text-gray-900">{user.codigoUniversitario}</td>
+                    <td className="p-3 font-medium text-gray-900">
                       {user.nombres} {user.apellidos}
                     </td>
-                    <td className="p-3 text-slate-600">{user.correo}</td>
+                    <td className="p-3 text-gray-600">{user.correo}</td>
                     <td className="p-3 text-center">
                       {user.tipo === 'Docente' ? (
                         <Badge variant="accent">
@@ -203,14 +203,14 @@ export const AdminUsers: React.FC = () => {
                     <td className="p-3 text-right space-x-2">
                       <button
                         onClick={() => openEditUserModal(user)}
-                        className="p-1.5 text-blue-700 hover:bg-blue-100 rounded transition"
+                        className="p-1.5 text-gray-700 hover:bg-gray-100 rounded transition"
                         title="Editar usuario"
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => handleDelete(user.id, `${user.nombres} ${user.apellidos}`)}
-                        className="p-1.5 text-rose-700 hover:bg-rose-100 rounded transition"
+                        className="p-1.5 text-gray-700 hover:bg-gray-100 rounded transition"
                         title="Eliminar usuario"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -232,15 +232,15 @@ export const AdminUsers: React.FC = () => {
       >
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
-            <div className="flex items-center gap-2 p-3 bg-rose-50 border border-rose-300 text-rose-900 rounded text-xs font-medium">
-              <AlertCircle className="w-4 h-4 text-rose-700 shrink-0" />
+            <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-300 text-gray-900 rounded text-xs font-medium">
+              <AlertCircle className="w-4 h-4 text-gray-700 shrink-0" />
               {error}
             </div>
           )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Nombres *</label>
+              <label className="block text-xs font-bold text-gray-800 mb-1">Nombres *</label>
               <input
                 type="text"
                 required
@@ -252,7 +252,7 @@ export const AdminUsers: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Apellidos *</label>
+              <label className="block text-xs font-bold text-gray-800 mb-1">Apellidos *</label>
               <input
                 type="text"
                 required
@@ -266,7 +266,7 @@ export const AdminUsers: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Código Universitario *</label>
+              <label className="block text-xs font-bold text-gray-800 mb-1">Código Universitario *</label>
               <input
                 type="text"
                 required
@@ -275,11 +275,11 @@ export const AdminUsers: React.FC = () => {
                 value={form.codigoUniversitario}
                 onChange={(e) => setForm({ ...form, codigoUniversitario: e.target.value })}
               />
-              <span className="text-[10px] text-slate-500">Debe ser único.</span>
+              <span className="text-[10px] text-gray-500">Debe ser único.</span>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Tipo de Usuario *</label>
+              <label className="block text-xs font-bold text-gray-800 mb-1">Tipo de Usuario *</label>
               <select
                 className="input-solid text-xs"
                 value={form.tipo}
@@ -292,7 +292,7 @@ export const AdminUsers: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-800 mb-1">Correo Electrónico *</label>
+            <label className="block text-xs font-bold text-gray-800 mb-1">Correo Electrónico *</label>
             <input
               type="email"
               required
@@ -303,7 +303,7 @@ export const AdminUsers: React.FC = () => {
             />
           </div>
 
-          <div className="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <div className="flex justify-end gap-2 pt-3 border-t border-gray-200">
             <button
               type="button"
               onClick={() => setIsModalOpen(false)}
@@ -312,7 +312,7 @@ export const AdminUsers: React.FC = () => {
               Cancelar
             </button>
             <button type="submit" className="btn-primary text-xs py-2">
-              <UserPlus className="w-4 h-4 text-amber-400" />
+              <UserPlus className="w-4 h-4 text-gray-400" />
               {editingUserId ? 'Guardar Cambios' : 'Registrar Usuario'}
             </button>
           </div>

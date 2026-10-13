@@ -9,16 +9,16 @@ const navigationItems = [
 ]
 
 export const Navbar = () => (
-  <header className="bg-white border-b border-slate-200 shadow-sm">
+  <header className="bg-white border-b border-gray-200 shadow-sm">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 py-4">
-        <NavLink to="/" className="flex items-center gap-3 text-blue-950">
-          <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-blue-900 text-white">
+        <NavLink to="/" className="flex items-center gap-3 text-gray-950">
+          <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-900 text-white">
             <BookOpen className="w-5 h-5" aria-hidden="true" />
           </span>
           <span>
             <span className="block font-bold leading-tight">Biblioteca Central</span>
-            <span className="block text-xs text-slate-500">UNCP · Facultad de Ingeniería de Sistemas</span>
+            <span className="block text-xs text-gray-500">UNCP · Facultad de Ingeniería de Sistemas</span>
           </span>
         </NavLink>
 
@@ -31,8 +31,8 @@ export const Navbar = () => (
               className={({ isActive }) =>
                 `inline-flex shrink-0 items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   isActive
-                    ? 'bg-blue-50 text-blue-900'
-                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'bg-gray-50 text-gray-900'
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                 }`
               }
             >

@@ -14,12 +14,10 @@ export const generateReceiptPDF = ({ loan, user, book }: ReceiptData) => {
     format: 'a5', // Tamaño media cuartilla formal para comprobante
   })
 
-  // Estilos de color institucional UNCP
-  const primaryNavy = '#1e3a8a'
-  const textDark = '#0f172a'
+  const textDark = '#262626'
 
   // Encabezado institucional
-  doc.setFillColor(30, 58, 138)
+  doc.setFillColor(38, 38, 38)
   doc.rect(0, 0, 148, 22, 'F')
 
   doc.setTextColor('#ffffff')
@@ -31,20 +29,20 @@ export const generateReceiptPDF = ({ loan, user, book }: ReceiptData) => {
   doc.text('Facultad de Ingeniería de Sistemas · Biblioteca Central', 74, 15, { align: 'center' })
 
   // Título del Comprobante
-  doc.setTextColor(primaryNavy)
+  doc.setTextColor(textDark)
   doc.setFontSize(13)
   doc.setFont('helvetica', 'bold')
   doc.text('COMPROBANTE DIGITAL DE PRÉSTAMO', 74, 32, { align: 'center' })
 
   // Código de préstamo
-  doc.setFillColor(241, 245, 249)
+  doc.setFillColor(245, 245, 245)
   doc.roundedRect(20, 36, 108, 11, 2, 2, 'F')
   doc.setFontSize(9)
   doc.setFont('helvetica', 'bold')
   doc.text(`CÓDIGO ÚNICO: ${loan.id}`, 74, 43, { align: 'center' })
 
   // Línea separadora
-  doc.setDrawColor(203, 213, 225)
+  doc.setDrawColor(212, 212, 212)
   doc.line(15, 52, 133, 52)
 
   let y = 60
@@ -97,7 +95,7 @@ export const generateReceiptPDF = ({ loan, user, book }: ReceiptData) => {
   doc.setFontSize(8.5)
   doc.text(`Fecha de Emisión: ${loan.fechaPrestamo}`, 15, y)
   y += 5
-  doc.setTextColor(194, 65, 12) // Color ámbar/terracota
+  doc.setTextColor(82, 82, 82)
   doc.setFont('helvetica', 'bold')
   doc.text(`Fecha Límite de Devolución: ${loan.fechaLimiteDevolucion}`, 15, y)
   doc.setTextColor(textDark)
@@ -118,7 +116,7 @@ export const generateReceiptPDF = ({ loan, user, book }: ReceiptData) => {
   // Pie de página
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(7)
-  doc.setTextColor(100, 116, 139)
+  doc.setTextColor(115, 115, 115)
   doc.text(`Generado automáticamente · Sistema de Biblioteca UNCP · ${new Date().toLocaleDateString()}`, 74, 195, {
     align: 'center',
   })

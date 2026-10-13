@@ -7,12 +7,12 @@ interface BadgeProps {
 
 export const Badge: React.FC<BadgeProps> = ({ variant = 'neutral', children }) => {
   const variantClasses = {
-    primary: 'bg-blue-100 text-blue-900 border-blue-300',
-    accent: 'bg-amber-100 text-amber-900 border-amber-300',
-    success: 'bg-emerald-100 text-emerald-900 border-emerald-300',
-    danger: 'bg-rose-100 text-rose-900 border-rose-300',
-    warning: 'bg-amber-100 text-amber-900 border-amber-300',
-    neutral: 'bg-slate-100 text-slate-800 border-slate-300',
+    primary: 'bg-gray-100 text-gray-900 border-gray-300',
+    accent: 'bg-gray-100 text-gray-900 border-gray-300',
+    success: 'bg-gray-100 text-gray-900 border-gray-300',
+    danger: 'bg-gray-100 text-gray-900 border-gray-300',
+    warning: 'bg-gray-100 text-gray-900 border-gray-300',
+    neutral: 'bg-gray-100 text-gray-800 border-gray-300',
   }[variant]
 
   return (

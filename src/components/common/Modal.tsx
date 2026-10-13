@@ -40,18 +40,18 @@ export const Modal: React.FC<ModalProps> = ({
   }[maxWidth]
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/60 backdrop-blur-xs animate-in fade-in duration-200">
       <div
-        className={`w-full ${widthClasses} bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden transform transition-all`}
+        className={`w-full ${widthClasses} bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden transform transition-all`}
         role="dialog"
         aria-modal="true"
       >
         {/* Cabecera del modal */}
-        <div className="flex items-center justify-between px-6 py-4 bg-blue-900 text-white border-b border-blue-950">
+        <div className="flex items-center justify-between px-6 py-4 bg-gray-900 text-white border-b border-gray-950">
           <h3 className="text-lg font-bold tracking-tight">{title}</h3>
           <button
             onClick={onClose}
-            className="p-1 rounded-md text-blue-200 hover:text-white hover:bg-blue-800 transition"
+            className="p-1 rounded-md text-gray-200 hover:text-white hover:bg-gray-800 transition"
             aria-label="Cerrar modal"
           >
             <X className="w-5 h-5" />

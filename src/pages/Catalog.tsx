@@ -63,28 +63,28 @@ export const Catalog: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabecera y presentación */}
-      <div className="card-solid p-6 border-l-4 border-l-blue-900 bg-white">
+      <div className="card-solid p-6 border-l-4 border-l-gray-900 bg-white">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-start gap-4">
             <img src="/logo-uncp.png" alt="UNCP Logo" className="h-12 w-auto object-contain shrink-0 hidden sm:block" />
             <div>
-              <h2 className="text-2xl font-bold text-blue-950">Catálogo General de Libros</h2>
-              <p className="text-sm text-slate-600 mt-1">
+              <h2 className="text-2xl font-bold text-gray-950">Catálogo General de Libros</h2>
+              <p className="text-sm text-gray-600 mt-1">
                 Explora el acervo bibliográfico, consulta la disponibilidad de ejemplares en tiempo real y solicita tu préstamo digital.
               </p>
             </div>
           </div>
           {activeUser && (
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-900">
+            <div className="p-3 bg-gray-50 border border-gray-200 rounded-lg text-xs flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-900">
                 {activeUser.nombres.charAt(0)}
               </div>
               <div>
-                <span className="text-slate-500 block">Solicitante Activo:</span>
-                <span className="font-bold text-slate-900">
+                <span className="text-gray-500 block">Solicitante Activo:</span>
+                <span className="font-bold text-gray-900">
                   {activeUser.nombres} {activeUser.apellidos}
                 </span>
-                <span className="text-blue-700 ml-1 font-semibold">({activeUser.tipo})</span>
+                <span className="text-gray-700 ml-1 font-semibold">({activeUser.tipo})</span>
               </div>
             </div>
           )}
@@ -94,7 +94,7 @@ export const Catalog: React.FC = () => {
       {/* Barra de Filtros y Búsqueda */}
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
         <div className="sm:col-span-5 relative">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+          <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
           <input
             type="text"
             className="input-solid pl-9 text-xs"
@@ -120,10 +120,10 @@ export const Catalog: React.FC = () => {
         </div>
 
         <div className="sm:col-span-3 flex items-center">
-          <label className="flex items-center gap-2 text-xs font-semibold text-slate-700 cursor-pointer select-none">
+          <label className="flex items-center gap-2 text-xs font-semibold text-gray-700 cursor-pointer select-none">
             <input
               type="checkbox"
-              className="rounded text-blue-900 focus:ring-blue-800"
+              className="rounded text-gray-900 focus:ring-gray-800"
               checked={onlyAvailable}
               onChange={(e) => setOnlyAvailable(e.target.checked)}
             />
@@ -134,10 +134,10 @@ export const Catalog: React.FC = () => {
 
       {/* Grid de Libros */}
       {filteredBooks.length === 0 ? (
-        <div className="card-solid p-10 text-center text-slate-500">
-          <BookOpen className="w-10 h-10 mx-auto text-slate-300 mb-2" />
-          <p className="font-semibold text-slate-700">No se encontraron libros con los filtros indicados.</p>
-          <p className="text-xs text-slate-400 mt-1">Prueba limpiando los términos de búsqueda o cambiando la categoría.</p>
+        <div className="card-solid p-10 text-center text-gray-500">
+          <BookOpen className="w-10 h-10 mx-auto text-gray-300 mb-2" />
+          <p className="font-semibold text-gray-700">No se encontraron libros con los filtros indicados.</p>
+          <p className="text-xs text-gray-400 mt-1">Prueba limpiando los términos de búsqueda o cambiando la categoría.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -148,12 +148,12 @@ export const Catalog: React.FC = () => {
             return (
               <div
                 key={book.id}
-                className="card-solid p-5 flex flex-col justify-between hover:border-slate-300 transition shadow-xs"
+                className="card-solid p-5 flex flex-col justify-between hover:border-gray-300 transition shadow-xs"
               >
                 <div>
                   {/* Categoría y disponibilidad */}
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-[11px] font-semibold text-blue-900 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
+                    <span className="text-[11px] font-semibold text-gray-900 bg-gray-50 border border-gray-200 px-2 py-0.5 rounded">
                       {cat?.nombre || 'General'}
                     </span>
                     {isAvailable ? (
@@ -164,16 +164,16 @@ export const Catalog: React.FC = () => {
                   </div>
 
                   {/* Título y Autor */}
-                  <h3 className="font-bold text-slate-900 text-sm leading-snug line-clamp-2 mt-1">
+                  <h3 className="font-bold text-gray-900 text-sm leading-snug line-clamp-2 mt-1">
                     {book.titulo}
                   </h3>
-                  <p className="text-xs text-slate-600 mt-1">Autor: {book.autor}</p>
-                  <p className="text-[11px] font-mono text-slate-400 mt-0.5">ISBN: {book.isbn}</p>
+                  <p className="text-xs text-gray-600 mt-1">Autor: {book.autor}</p>
+                  <p className="text-[11px] font-mono text-gray-400 mt-0.5">ISBN: {book.isbn}</p>
                 </div>
 
                 {/* Acción de Préstamo */}
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs text-slate-500">
+                <div className="pt-4 mt-4 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-xs text-gray-500">
                     {isAvailable ? 'Disponible para préstamo' : 'Sin ejemplares'}
                   </span>
                   <button
@@ -181,8 +181,8 @@ export const Catalog: React.FC = () => {
                     disabled={!isAvailable}
                     className={`text-xs px-3 py-1.5 rounded font-medium transition flex items-center gap-1.5 ${
                       isAvailable
-                        ? 'bg-blue-900 text-white hover:bg-blue-950 cursor-pointer shadow-xs'
-                        : 'bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300'
+                        ? 'bg-gray-900 text-white hover:bg-gray-950 cursor-pointer shadow-xs'
+                        : 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300'
                     }`}
                     title={isAvailable ? 'Solicitar préstamo' : 'No se puede solicitar: Stock es cero'}
                   >
@@ -205,24 +205,24 @@ export const Catalog: React.FC = () => {
         {selectedBook && (
           <form onSubmit={handleConfirmLoan} className="space-y-4">
             {loanError && (
-              <div className="flex items-center gap-2 p-3 bg-rose-50 border border-rose-300 text-rose-900 rounded text-xs font-medium">
-                <AlertTriangle className="w-4 h-4 text-rose-700 shrink-0" />
+              <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-300 text-gray-900 rounded text-xs font-medium">
+                <AlertTriangle className="w-4 h-4 text-gray-700 shrink-0" />
                 {loanError}
               </div>
             )}
 
             {/* Resumen del libro */}
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs space-y-1">
-              <span className="text-slate-500 block text-[10px] uppercase font-bold">Libro Seleccionado</span>
-              <p className="font-bold text-slate-900 text-sm">{selectedBook.titulo}</p>
-              <p className="text-slate-600">Autor: {selectedBook.autor}</p>
-              <p className="text-slate-600">Stock actual: {selectedBook.stock} ejemplar(es)</p>
+            <div className="p-3 bg-gray-50 border border-gray-200 rounded-lg text-xs space-y-1">
+              <span className="text-gray-500 block text-[10px] uppercase font-bold">Libro Seleccionado</span>
+              <p className="font-bold text-gray-900 text-sm">{selectedBook.titulo}</p>
+              <p className="text-gray-600">Autor: {selectedBook.autor}</p>
+              <p className="text-gray-600">Stock actual: {selectedBook.stock} ejemplar(es)</p>
             </div>
 
             {/* Selección de Usuario */}
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1 flex items-center gap-1">
-                <User className="w-3.5 h-3.5 text-blue-900" />
+              <label className="block text-xs font-bold text-gray-800 mb-1 flex items-center gap-1">
+                <User className="w-3.5 h-3.5 text-gray-900" />
                 Usuario Solicitante (Estudiante o Docente) *
               </label>
               <select
@@ -241,8 +241,8 @@ export const Catalog: React.FC = () => {
 
             {/* Plazo del préstamo */}
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1 flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-amber-600" />
+              <label className="block text-xs font-bold text-gray-800 mb-1 flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5 text-gray-600" />
                 Período de Préstamo *
               </label>
               <select
@@ -254,12 +254,12 @@ export const Catalog: React.FC = () => {
                 <option value={7}>7 Días (Estándar universitario)</option>
                 <option value={14}>14 Días (Investigación / Docente)</option>
               </select>
-              <span className="text-[10px] text-slate-500 mt-1 block">
+              <span className="text-[10px] text-gray-500 mt-1 block">
                 Se calculará automáticamente la fecha límite de entrega.
               </span>
             </div>
 
-            <div className="flex justify-end gap-2 pt-3 border-t border-slate-200">
+            <div className="flex justify-end gap-2 pt-3 border-t border-gray-200">
               <button
                 type="button"
                 onClick={() => setIsLoanModalOpen(false)}
