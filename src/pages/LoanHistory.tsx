@@ -65,38 +65,38 @@ export const LoanHistory: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabecera y Resumen */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-gray-200">
         <div>
-          <h2 className="text-2xl font-bold text-blue-950 flex items-center gap-2">
-            <History className="w-6 h-6 text-amber-600" />
+          <h2 className="text-2xl font-bold text-gray-950 flex items-center gap-2">
+            <History className="w-6 h-6 text-gray-600" />
             Historial de Préstamos y Devoluciones
           </h2>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-gray-600">
             Control de vigencias, estados de préstamo activo/devuelto y comprobantes digitales.
           </p>
         </div>
 
         {/* Tarjetas de métricas rápidas */}
         <div className="flex gap-2">
-          <div className="px-3 py-1.5 bg-white border border-slate-200 rounded-md text-xs shadow-xs">
-            <span className="text-slate-500 block">Total</span>
-            <span className="font-bold text-slate-900">{totalLoans}</span>
+          <div className="px-3 py-1.5 bg-white border border-gray-200 rounded-md text-xs shadow-xs">
+            <span className="text-gray-500 block">Total</span>
+            <span className="font-bold text-gray-900">{totalLoans}</span>
           </div>
-          <div className="px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-md text-xs shadow-xs">
-            <span className="text-amber-800 block">Activos</span>
-            <span className="font-bold text-amber-900">{activeCount}</span>
+          <div className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-md text-xs shadow-xs">
+            <span className="text-gray-800 block">Activos</span>
+            <span className="font-bold text-gray-900">{activeCount}</span>
           </div>
-          <div className="px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-md text-xs shadow-xs">
-            <span className="text-emerald-800 block">Devueltos</span>
-            <span className="font-bold text-emerald-900">{returnedCount}</span>
+          <div className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-md text-xs shadow-xs">
+            <span className="text-gray-800 block">Devueltos</span>
+            <span className="font-bold text-gray-900">{returnedCount}</span>
           </div>
         </div>
       </div>
 
       {/* Alerta de acción */}
       {actionSuccess && (
-        <div className="flex items-center gap-2 p-3 bg-emerald-50 border border-emerald-300 text-emerald-900 rounded-md text-xs font-medium">
-          <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+        <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-300 text-gray-900 rounded-md text-xs font-medium">
+          <CheckCircle2 className="w-4 h-4 text-gray-700 shrink-0" />
           {actionSuccess}
         </div>
       )}
@@ -104,7 +104,7 @@ export const LoanHistory: React.FC = () => {
       {/* Filtros de Historial */}
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
         <div className="sm:col-span-4 relative">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+          <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
           <input
             type="text"
             className="input-solid pl-9 text-xs"
@@ -146,7 +146,7 @@ export const LoanHistory: React.FC = () => {
       <div className="card-solid overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
-            <thead className="bg-slate-100 text-slate-700 uppercase font-semibold border-b border-slate-200">
+            <thead className="bg-gray-100 text-gray-700 uppercase font-semibold border-b border-gray-200">
               <tr>
                 <th className="p-3">Código</th>
                 <th className="p-3">Usuario</th>
@@ -157,10 +157,10 @@ export const LoanHistory: React.FC = () => {
                 <th className="p-3 text-right">Acciones</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200">
+            <tbody className="divide-y divide-gray-200">
               {filteredLoans.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="p-6 text-center text-slate-500">
+                  <td colSpan={7} className="p-6 text-center text-gray-500">
                     No hay registros de préstamos que coincidan con los filtros seleccionados.
                   </td>
                 </tr>
@@ -171,24 +171,24 @@ export const LoanHistory: React.FC = () => {
                   const isActivo = loan.estado === 'Activo'
 
                   return (
-                    <tr key={loan.id} className="hover:bg-slate-50 transition">
-                      <td className="p-3 font-mono font-bold text-blue-900">{loan.id}</td>
+                    <tr key={loan.id} className="hover:bg-gray-50 transition">
+                      <td className="p-3 font-mono font-bold text-gray-900">{loan.id}</td>
                       <td className="p-3">
-                        <div className="font-semibold text-slate-900">
+                        <div className="font-semibold text-gray-900">
                           {user ? `${user.nombres} ${user.apellidos}` : 'Usuario eliminado'}
                         </div>
-                        <div className="text-[10px] text-slate-500">
+                        <div className="text-[10px] text-gray-500">
                           {user?.tipo} · Cód: {user?.codigoUniversitario}
                         </div>
                       </td>
                       <td className="p-3 max-w-xs">
-                        <div className="font-medium text-slate-900 line-clamp-1">
+                        <div className="font-medium text-gray-900 line-clamp-1">
                           {book ? book.titulo : 'Libro no disponible'}
                         </div>
-                        <div className="text-[10px] text-slate-500">{book?.autor}</div>
+                        <div className="text-[10px] text-gray-500">{book?.autor}</div>
                       </td>
-                      <td className="p-3 text-slate-700">{loan.fechaPrestamo}</td>
-                      <td className="p-3 font-semibold text-amber-900">{loan.fechaLimiteDevolucion}</td>
+                      <td className="p-3 text-gray-700">{loan.fechaPrestamo}</td>
+                      <td className="p-3 font-semibold text-gray-900">{loan.fechaLimiteDevolucion}</td>
                       <td className="p-3 text-center">
                         {isActivo ? (
                           <Badge variant="warning">En Préstamo (Activo)</Badge>
@@ -200,10 +200,10 @@ export const LoanHistory: React.FC = () => {
                         {/* Ver comprobante */}
                         <button
                           onClick={() => handleViewReceipt(loan.id)}
-                          className="p-1.5 text-blue-700 hover:bg-blue-100 rounded transition inline-flex items-center gap-1"
+                          className="p-1.5 text-gray-700 hover:bg-gray-100 rounded transition inline-flex items-center gap-1"
                           title="Ver comprobante y descargar PDF"
                         >
-                          <FileText className="w-4 h-4 text-blue-900" />
+                          <FileText className="w-4 h-4 text-gray-900" />
                           <span className="hidden md:inline text-[11px] font-medium">Comprobante</span>
                         </button>
 
@@ -211,10 +211,10 @@ export const LoanHistory: React.FC = () => {
                         {isActivo && (
                           <button
                             onClick={() => handleReturn(loan.id, book?.titulo || '')}
-                            className="p-1.5 text-emerald-700 hover:bg-emerald-100 rounded transition inline-flex items-center gap-1 font-semibold"
+                            className="p-1.5 text-gray-700 hover:bg-gray-100 rounded transition inline-flex items-center gap-1 font-semibold"
                             title="Registrar devolución del libro"
                           >
-                            <RotateCcw className="w-4 h-4 text-emerald-800" />
+                            <RotateCcw className="w-4 h-4 text-gray-800" />
                             <span className="hidden md:inline text-[11px]">Devolver</span>
                           </button>
                         )}

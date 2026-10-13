@@ -164,10 +164,10 @@ export const AdminBooks: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Título de la página */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-gray-200">
         <div>
-          <h2 className="text-2xl font-bold text-blue-950">Módulo de Administración de Libros</h2>
-          <p className="text-sm text-slate-600">
+          <h2 className="text-2xl font-bold text-gray-950">Módulo de Administración de Libros</h2>
+          <p className="text-sm text-gray-600">
             Registro, edición, eliminación y control de inventario bibliográfico.
           </p>
         </div>
@@ -176,12 +176,12 @@ export const AdminBooks: React.FC = () => {
         <div className="flex gap-2">
           {activeTab === 'books' ? (
             <button onClick={openNewBookModal} className="btn-primary text-xs py-2">
-              <BookPlus className="w-4 h-4 text-amber-400" />
+              <BookPlus className="w-4 h-4 text-gray-400" />
               Nuevo Libro
             </button>
           ) : (
             <button onClick={openNewCatModal} className="btn-primary text-xs py-2">
-              <FolderPlus className="w-4 h-4 text-amber-400" />
+              <FolderPlus className="w-4 h-4 text-gray-400" />
               Nueva Categoría
             </button>
           )}
@@ -190,26 +190,26 @@ export const AdminBooks: React.FC = () => {
 
       {/* Notificaciones */}
       {bookSuccess && (
-        <div className="flex items-center gap-2 p-3 bg-emerald-50 border border-emerald-300 text-emerald-900 rounded-md text-xs font-medium">
-          <CheckCircle className="w-4 h-4 text-emerald-700" />
+        <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-300 text-gray-900 rounded-md text-xs font-medium">
+          <CheckCircle className="w-4 h-4 text-gray-700" />
           {bookSuccess}
         </div>
       )}
       {catSuccess && (
-        <div className="flex items-center gap-2 p-3 bg-emerald-50 border border-emerald-300 text-emerald-900 rounded-md text-xs font-medium">
-          <CheckCircle className="w-4 h-4 text-emerald-700" />
+        <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-300 text-gray-900 rounded-md text-xs font-medium">
+          <CheckCircle className="w-4 h-4 text-gray-700" />
           {catSuccess}
         </div>
       )}
 
       {/* Tabs de navegación interna */}
-      <div className="flex border-b border-slate-200 gap-6 text-sm font-semibold">
+      <div className="flex border-b border-gray-200 gap-6 text-sm font-semibold">
         <button
           onClick={() => setActiveTab('books')}
           className={`pb-3 px-1 border-b-2 transition ${
             activeTab === 'books'
-              ? 'border-blue-900 text-blue-950 font-bold'
-              : 'border-transparent text-slate-500 hover:text-slate-800'
+              ? 'border-gray-900 text-gray-950 font-bold'
+              : 'border-transparent text-gray-500 hover:text-gray-800'
           }`}
         >
           Gestión de Libros ({books.length})
@@ -218,8 +218,8 @@ export const AdminBooks: React.FC = () => {
           onClick={() => setActiveTab('categories')}
           className={`pb-3 px-1 border-b-2 transition ${
             activeTab === 'categories'
-              ? 'border-blue-900 text-blue-950 font-bold'
-              : 'border-transparent text-slate-500 hover:text-slate-800'
+              ? 'border-gray-900 text-gray-950 font-bold'
+              : 'border-transparent text-gray-500 hover:text-gray-800'
           }`}
         >
           Categorías ({categories.length})
@@ -231,7 +231,7 @@ export const AdminBooks: React.FC = () => {
         <div className="card-solid overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
-              <thead className="bg-slate-100 text-slate-700 uppercase font-semibold border-b border-slate-200">
+              <thead className="bg-gray-100 text-gray-700 uppercase font-semibold border-b border-gray-200">
                 <tr>
                   <th className="p-3">Título</th>
                   <th className="p-3">Autor</th>
@@ -241,10 +241,10 @@ export const AdminBooks: React.FC = () => {
                   <th className="p-3 text-right">Acciones</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200">
+              <tbody className="divide-y divide-gray-200">
                 {books.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="p-6 text-center text-slate-500">
+                    <td colSpan={6} className="p-6 text-center text-gray-500">
                       No hay libros registrados en el sistema.
                     </td>
                   </tr>
@@ -252,12 +252,12 @@ export const AdminBooks: React.FC = () => {
                   books.map((book) => {
                     const cat = categories.find((c) => c.id === book.categoriaId)
                     return (
-                      <tr key={book.id} className="hover:bg-slate-50 transition">
-                        <td className="p-3 font-semibold text-blue-950 max-w-xs">{book.titulo}</td>
-                        <td className="p-3 text-slate-700">{book.autor}</td>
-                        <td className="p-3 font-mono text-slate-600">{book.isbn}</td>
+                      <tr key={book.id} className="hover:bg-gray-50 transition">
+                        <td className="p-3 font-semibold text-gray-950 max-w-xs">{book.titulo}</td>
+                        <td className="p-3 text-gray-700">{book.autor}</td>
+                        <td className="p-3 font-mono text-gray-600">{book.isbn}</td>
                         <td className="p-3">
-                          <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
+                          <span className="px-2 py-0.5 rounded bg-gray-100 text-gray-700 border border-gray-200">
                             {cat ? cat.nombre : 'Sin Categoría'}
                           </span>
                         </td>
@@ -271,14 +271,14 @@ export const AdminBooks: React.FC = () => {
                         <td className="p-3 text-right space-x-2">
                           <button
                             onClick={() => openEditBookModal(book)}
-                            className="p-1.5 text-blue-700 hover:bg-blue-100 rounded transition"
+                            className="p-1.5 text-gray-700 hover:bg-gray-100 rounded transition"
                             title="Editar libro"
                           >
                             <Edit2 className="w-4 h-4" />
                           </button>
                           <button
                             onClick={() => handleDeleteBook(book.id, book.titulo)}
-                            className="p-1.5 text-rose-700 hover:bg-rose-100 rounded transition"
+                            className="p-1.5 text-gray-700 hover:bg-gray-100 rounded transition"
                             title="Eliminar libro"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -299,7 +299,7 @@ export const AdminBooks: React.FC = () => {
         <div className="card-solid overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
-              <thead className="bg-slate-100 text-slate-700 uppercase font-semibold border-b border-slate-200">
+              <thead className="bg-gray-100 text-gray-700 uppercase font-semibold border-b border-gray-200">
                 <tr>
                   <th className="p-3">Nombre</th>
                   <th className="p-3">Descripción</th>
@@ -307,10 +307,10 @@ export const AdminBooks: React.FC = () => {
                   <th className="p-3 text-right">Acciones</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200">
+              <tbody className="divide-y divide-gray-200">
                 {categories.length === 0 ? (
                   <tr>
-                    <td colSpan={4} className="p-6 text-center text-slate-500">
+                    <td colSpan={4} className="p-6 text-center text-gray-500">
                       No hay categorías registradas.
                     </td>
                   </tr>
@@ -318,23 +318,23 @@ export const AdminBooks: React.FC = () => {
                   categories.map((cat) => {
                     const count = books.filter((b) => b.categoriaId === cat.id).length
                     return (
-                      <tr key={cat.id} className="hover:bg-slate-50 transition">
-                        <td className="p-3 font-semibold text-blue-950">{cat.nombre}</td>
-                        <td className="p-3 text-slate-600">{cat.descripcion || '—'}</td>
+                      <tr key={cat.id} className="hover:bg-gray-50 transition">
+                        <td className="p-3 font-semibold text-gray-950">{cat.nombre}</td>
+                        <td className="p-3 text-gray-600">{cat.descripcion || '—'}</td>
                         <td className="p-3 text-center">
-                          <span className="font-semibold text-slate-800">{count} libros</span>
+                          <span className="font-semibold text-gray-800">{count} libros</span>
                         </td>
                         <td className="p-3 text-right space-x-2">
                           <button
                             onClick={() => openEditCatModal(cat)}
-                            className="p-1.5 text-blue-700 hover:bg-blue-100 rounded transition"
+                            className="p-1.5 text-gray-700 hover:bg-gray-100 rounded transition"
                             title="Editar categoría"
                           >
                             <Edit2 className="w-4 h-4" />
                           </button>
                           <button
                             onClick={() => handleDeleteCat(cat.id, cat.nombre)}
-                            className="p-1.5 text-rose-700 hover:bg-rose-100 rounded transition"
+                            className="p-1.5 text-gray-700 hover:bg-gray-100 rounded transition"
                             title="Eliminar categoría"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -358,14 +358,14 @@ export const AdminBooks: React.FC = () => {
       >
         <form onSubmit={handleBookSubmit} className="space-y-4">
           {bookError && (
-            <div className="flex items-center gap-2 p-3 bg-rose-50 border border-rose-300 text-rose-900 rounded text-xs font-medium">
-              <AlertCircle className="w-4 h-4 text-rose-700 shrink-0" />
+            <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-300 text-gray-900 rounded text-xs font-medium">
+              <AlertCircle className="w-4 h-4 text-gray-700 shrink-0" />
               {bookError}
             </div>
           )}
 
           <div>
-            <label className="block text-xs font-bold text-slate-800 mb-1">Título del Libro *</label>
+            <label className="block text-xs font-bold text-gray-800 mb-1">Título del Libro *</label>
             <input
               type="text"
               required
@@ -378,7 +378,7 @@ export const AdminBooks: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Autor *</label>
+              <label className="block text-xs font-bold text-gray-800 mb-1">Autor *</label>
               <input
                 type="text"
                 required
@@ -390,7 +390,7 @@ export const AdminBooks: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">ISBN *</label>
+              <label className="block text-xs font-bold text-gray-800 mb-1">ISBN *</label>
               <input
                 type="text"
                 required
@@ -404,7 +404,7 @@ export const AdminBooks: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Categoría *</label>
+              <label className="block text-xs font-bold text-gray-800 mb-1">Categoría *</label>
               <select
                 required
                 className="input-solid text-xs"
@@ -421,7 +421,7 @@ export const AdminBooks: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Stock Disponible *</label>
+              <label className="block text-xs font-bold text-gray-800 mb-1">Stock Disponible *</label>
               <input
                 type="number"
                 min="0"
@@ -433,7 +433,7 @@ export const AdminBooks: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <div className="flex justify-end gap-2 pt-3 border-t border-gray-200">
             <button
               type="button"
               onClick={() => setIsBookModalOpen(false)}
@@ -442,7 +442,7 @@ export const AdminBooks: React.FC = () => {
               Cancelar
             </button>
             <button type="submit" className="btn-primary text-xs py-2">
-              <Plus className="w-4 h-4 text-amber-400" />
+              <Plus className="w-4 h-4 text-gray-400" />
               {editingBookId ? 'Guardar Cambios' : 'Registrar Libro'}
             </button>
           </div>
@@ -457,14 +457,14 @@ export const AdminBooks: React.FC = () => {
       >
         <form onSubmit={handleCatSubmit} className="space-y-4">
           {catError && (
-            <div className="flex items-center gap-2 p-3 bg-rose-50 border border-rose-300 text-rose-900 rounded text-xs font-medium">
-              <AlertCircle className="w-4 h-4 text-rose-700 shrink-0" />
+            <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-300 text-gray-900 rounded text-xs font-medium">
+              <AlertCircle className="w-4 h-4 text-gray-700 shrink-0" />
               {catError}
             </div>
           )}
 
           <div>
-            <label className="block text-xs font-bold text-slate-800 mb-1">Nombre de la Categoría *</label>
+            <label className="block text-xs font-bold text-gray-800 mb-1">Nombre de la Categoría *</label>
             <input
               type="text"
               required
@@ -476,7 +476,7 @@ export const AdminBooks: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-800 mb-1">Descripción</label>
+            <label className="block text-xs font-bold text-gray-800 mb-1">Descripción</label>
             <textarea
               rows={3}
               className="input-solid text-xs"
@@ -486,7 +486,7 @@ export const AdminBooks: React.FC = () => {
             />
           </div>
 
-          <div className="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <div className="flex justify-end gap-2 pt-3 border-t border-gray-200">
             <button
               type="button"
               onClick={() => setIsCatModalOpen(false)}

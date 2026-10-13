@@ -10,7 +10,7 @@ export function App() {
   return (
     <LibraryProvider>
       <Router>
-        <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+        <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900">
           {/* Navegación y Cabecera Institucional UNCP */}
           <Navbar />
 
@@ -35,11 +35,11 @@ export function App() {
           </main>
 
           {/* Pie de Página Institucional */}
-          <footer className="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-            <p className="font-semibold text-slate-700">
+          <footer className="bg-white border-t border-gray-200 py-4 text-center text-xs text-gray-500">
+            <p className="font-semibold text-gray-700">
               Universidad Nacional del Centro del Perú · Facultad de Ingeniería de Sistemas
             </p>
-            <p className="mt-0.5 text-slate-400">
+            <p className="mt-0.5 text-gray-400">
               Evaluación Parcial de Desarrollo de Aplicaciones Web · Dr. Jaime Suasnábar Terrel · 2026
             </p>
           </footer>
